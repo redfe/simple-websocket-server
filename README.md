@@ -26,19 +26,20 @@ $ node index.js
 client html.
 
 ```
-    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-    ...
-    var socket = io('http://localhost:3000/?roomId=sampleroom');
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script>
+var socket = io('http://localhost:3000/?roomId=sampleroom');
 
-    
-    socket.on('do event', function (event) {
-        console.log(event);
-    });
 
-    socket.on('undo event', function (event) {
-        console.log(event);
-    });
+socket.on('do event', function (event) {
+    console.log(event);
+});
 
-    socket.emit('do event', {name: "Hello"});
-    socket.emit('undo event', {name: "Hello"});
+socket.on('undo event', function (event) {
+    console.log(event);
+});
+
+socket.emit('do event', {name: "Hello"});
+socket.emit('undo event', {name: "Hello"});
+</script>
 ```
