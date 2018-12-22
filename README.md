@@ -11,7 +11,7 @@ very simple WebSocket server by [Socket.IO](https://socket.io/).
 
 ## Usage
 
-install libraries.
+install packages.
 
 ```
 $ npm install
