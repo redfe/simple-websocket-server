@@ -11,16 +11,10 @@ very simple WebSocket server by [Socket.IO](https://socket.io/).
 
 ## Usage
 
-install packages.
-
-```
-$ npm install
-```
-
 start server.
 
 ```
-$ node index.js
+$ npm start
 ```
 
 client html.
