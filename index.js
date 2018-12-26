@@ -17,7 +17,8 @@ io.on('connection', function (socket) {
     remoteAddress: remoteAddress,
     roomId: roomId,
   });
-socket.on('do event', function (msg) {
+  socket.on('do event', function (msg) {
+    io.to(roomId).emit('do event', msg);
     console.log({
       eventName: "do event",
       datetime: new Date().toISOString(),
@@ -25,9 +26,9 @@ socket.on('do event', function (msg) {
       roomId: roomId,
       body: msg
     });
-    io.to(roomId).emit('do event', msg);
   });
   socket.on('undo event', function (msg) {
+    io.to(roomId).emit('undo event', msg);
     console.log({
       eventName: "undo event",
       datetime: new Date().toISOString(),
@@ -36,7 +37,6 @@ socket.on('do event', function (msg) {
       roomId: roomId,
       body: msg
     });
-    io.to(roomId).emit('undo event', msg);
   });
 });
 
