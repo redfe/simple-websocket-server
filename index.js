@@ -11,14 +11,17 @@ io.on('connection', function (socket) {
   var clientId = socket.id;
   var remoteAddress = socket.conn.remoteAddress;
   socket.join(roomId);
+  /*
   console.log({
     eventName: "connect",
     datetime: new Date().toISOString(),
     remoteAddress: remoteAddress,
     roomId: roomId,
   });
+  */
   socket.on('do event', function (msg) {
     io.to(roomId).emit('do event', msg);
+    /*
     console.log({
       eventName: "do event",
       datetime: new Date().toISOString(),
@@ -26,9 +29,11 @@ io.on('connection', function (socket) {
       roomId: roomId,
       body: msg
     });
+    */
   });
   socket.on('undo event', function (msg) {
     io.to(roomId).emit('undo event', msg);
+    /*
     console.log({
       eventName: "undo event",
       datetime: new Date().toISOString(),
@@ -37,9 +42,10 @@ io.on('connection', function (socket) {
       roomId: roomId,
       body: msg
     });
+    */
   });
 });
 
 http.listen(process.env.PORT || 3000, function () {
-  console.log('listening on *:3000');
+  // console.log('listening on *:3000');
 });
